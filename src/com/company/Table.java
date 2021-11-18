@@ -15,6 +15,9 @@ public class Table  extends JFrame {
 
          Toolkit kit = Toolkit.getDefaultToolkit();
          setLocation( (kit.getScreenSize().width - WIDTH) / 2, (kit.getScreenSize().height - HEIGHT)/2) ;
+         Container cont = getContentPane();
+
+         GornerTabel a1 = new GornerTabel();
 
      }
 

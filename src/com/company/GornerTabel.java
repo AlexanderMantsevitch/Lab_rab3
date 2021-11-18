@@ -53,9 +53,11 @@ public class GornerTabel extends AbstractTableModel {
             case 0:
 
                 return "Значение X";
-            default:
+             case 1:
 
                 return "Значение многочлена";
+            case 2: return "Значение многочлена, когда коэффициенты размещены в другом порядке";
+            default: return "Разница между значениями";
         }
     }
     public Class<?> getColumnClass(int col) {
