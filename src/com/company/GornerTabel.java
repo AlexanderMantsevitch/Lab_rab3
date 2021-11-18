@@ -6,9 +6,9 @@ public class GornerTabel extends AbstractTableModel {
     private double from;
     private double to;
     private double step;
-    private double [] coefficient;
+    private Double [] coefficient;
 
- public GornerTabel (double from, double to, double step, double[] coefficient )
+ public GornerTabel (double from, double to, double step, Double[] coefficient )
  {
      this.from = from;
      this.to = to;
@@ -18,7 +18,8 @@ public class GornerTabel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return new Double(Math.ceil((to-from)/step)).intValue() + 1;
+
+        return new Double(Math.ceil((to-from)/step)).intValue()+1;
     }
 
     @Override
@@ -28,26 +29,40 @@ public class GornerTabel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-      double x = from + step * rowIndex;
-        if (columnIndex == 0) return x;
-        else {
-            double result = 0.0;
-           int i = 1;
-           int y = -1; // Кол-во операций сложения и умножения
-            int k = coefficient.length;
+        double x = from + step * rowIndex;
 
-            while (i <= k)
+        switch (columnIndex) {
+            case 0: return x;
+            case 1: {
+                double result = 0.0;
+                int i = 0;
 
-            {
-                result = result * x + coefficient[ k -1 ];
+                int k = coefficient.length - 1;
 
-                k--;
-                y++;
+                while (i <= k) {
+                    result = result * x + this.coefficient[k ];
+
+                    k--;
+
+                }
+                return result;
             }
-            return result;
-        }
-        }
+            case 2: {
+                double result = 0.0;
+                int i = coefficient.length-1;
 
+                int k = 0;
+
+                while (i >= k) {
+                    result = result * x + coefficient[k];
+
+                    k++;
+                }
+                return result;
+            }
+            default: return 3.0;
+        }
+    }
     public String getColumnName(int col) {
         switch (col) {
             case 0:
