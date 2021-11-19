@@ -71,7 +71,7 @@ public class Table  extends JFrame {
               {
                   file = new JFileChooser();
 
-                  file.setCurrentDirectory(new File("E:\\Программирование\\Второй курс\\Java\\Lab_rab3\\out\\production"));
+                  file.setCurrentDirectory(new File(" "));
 
               }
                  if (file.showSaveDialog(Table.this) == JFileChooser.APPROVE_OPTION)
@@ -85,6 +85,7 @@ public class Table  extends JFrame {
          saveToText.setEnabled(false);
          menuBar.add(filename);
          menuBar.add (tabl);
+         tabl.setEnabled(false);
 
          filename.add (information);
          Action find = new AbstractAction("Найти из диапазона") {
@@ -145,12 +146,13 @@ public class Table  extends JFrame {
         JButton result = new JButton("Вычислить");
         result.setSize(10,10);
         JPanel butt = new JPanel();
-         butt.add (result);
+         butt.add (result, BorderLayout.CENTER);
+
          JButton clear = new JButton("Очистить");
          clear.setSize(10,10);
 butt.add (clear);
 
-         cont.add (butt);
+         cont.add (butt, BorderLayout.SOUTH);
 cont.setPreferredSize(new Dimension(WIDTH, WIDTH));
 
 
@@ -171,6 +173,7 @@ cont.setPreferredSize(new Dimension(WIDTH, WIDTH));
             Result.add(new JScrollPane(table));
             getContentPane().validate();
             saveToText.setEnabled(true);
+            tabl.setEnabled(true);
         }
         catch(NumberFormatException ex) {
             JOptionPane.showMessageDialog(Table.this,
@@ -189,6 +192,7 @@ cont.setPreferredSize(new Dimension(WIDTH, WIDTH));
                  textField_to.setText(" ");
                  getContentPane().validate();
                  saveToText.setEnabled(false);
+                 tabl.setEnabled(false);
 
              }
          });

@@ -32,7 +32,7 @@ public class GornerTableCellRenderer implements TableCellRenderer {
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         String formattedDouble = formatter.format(value);
         label.setText(formattedDouble);
-        if ((column + row) % 2 == 1)
+        if ((column + row) % 2 == 0)
         {
             label.setForeground(Color.WHITE);
             panel.setBackground(Color.BLACK);

@@ -94,6 +94,7 @@ public class GornerTabel extends AbstractTableModel {
         }
 
     public String getColumnName(int col) {
+
         switch (col) {
             case 0:
 
@@ -101,10 +102,11 @@ public class GornerTabel extends AbstractTableModel {
              case 1:
 
                 return "Значение многочлена";
-            case 2: return "Значение многочлена, когда коэффициенты размещены в другом порядке";
+            case 2: return "Значение многочлена,\n когда коэффициенты\n размещены в другом порядке";
             default: return "Разница между значениями";
         }
     }
+
     public Class<?> getColumnClass(int col) {
 
         return Double.class;
