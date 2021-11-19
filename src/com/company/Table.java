@@ -45,8 +45,25 @@ public class Table  extends JFrame {
              }
          };
          menuBar.add(filename);
-         filename.add (information);
+         menuBar.add (tabl);
 
+         filename.add (information);
+         Action find = new AbstractAction("Найти из диапазона") {
+             @Override
+
+             public void actionPerformed(ActionEvent e) {
+                 String str1;
+                 str1 = JOptionPane.showInputDialog(Table.this, "Введите промежуток от - до через пробел",
+                         "Поиск из диапазона", JOptionPane.QUESTION_MESSAGE);
+                 String[] str = str1.split(" ");
+
+                 render.setFrom(str[0]);
+                 render.setTo(str[1]);
+                 getContentPane().repaint();
+
+             }
+         };
+tabl.add(find);
 
      //    menuBar.add (tabl);
         JLabel Label_From = new JLabel("х изменяется от: " );
