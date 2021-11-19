@@ -110,7 +110,17 @@ public class GornerTabel extends AbstractTableModel {
         return Double.class;
     }
 
+    public double getFrom() {
+        return from;
+    }
 
+    public double getTo() {
+        return to;
+    }
+
+    public double getStep() {
+        return step;
+    }
 }
 
 
